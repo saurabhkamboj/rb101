@@ -21,11 +21,11 @@ operator = Kernel.gets().chomp()
 
 case operator
 when "1"
-  result = first_number.to_i() + second_number.to_i()
+  result = first_number.to_f() + second_number.to_f()
 when "2"
-  result = first_number.to_i() - second_number.to_i()
+  result = first_number.to_f() - second_number.to_f()
 when "3"
-  result = first_number.to_i() * second_number.to_i()
+  result = first_number.to_f() * second_number.to_f()
 else 
   result = first_number.to_f() / second_number.to_f()
 end
