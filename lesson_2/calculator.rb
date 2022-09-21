@@ -3,11 +3,26 @@
 # perform the operation on the two numbers
 # display the result
 
+LANGUAGE = "en" # change language here
+
+require 'yaml'
+MESSAGES = YAML.load_file("calculator_messages.yml")
+
+def messages(message, lang="en")
+  MESSAGES[lang][message]
+end
+
+def prompt(key)
+  message = messages(key, LANGUAGE)
+  puts "#{message}"
+end
+
 def question_prompt(message)
   print "=> #{message}"
 end
 
-def error_prompt(message)
+def error_prompt(key)
+  message = messages(key, LANGUAGE)
   puts "<!> #{message}"
 end
 
@@ -28,7 +43,7 @@ def operator_chosen(op)
   end
 end
 
-puts "The CALCULATOR"
+prompt("title")
 
 loop do # main loop
   first_number = ""
@@ -39,7 +54,7 @@ loop do # main loop
     if valid_number?(first_number)
       break
     else
-      error_prompt("This isn't a valid number!")
+      error_prompt("invalid_number")
     end
   end
 
@@ -51,7 +66,7 @@ loop do # main loop
     if valid_number?(second_number)
       break
     else
-      error_prompt("This isn't a valid number!")
+      error_prompt("invalid_number")
     end
   end
 
@@ -105,4 +120,4 @@ loop do # main loop
   break unless answer.downcase == "y"
 end
 
-puts "Thank you for using the CALCULATOR."
+prompt("thank_you")
