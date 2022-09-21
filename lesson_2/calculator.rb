@@ -14,7 +14,7 @@ end
 
 def prompt(key)
   message = messages(key, LANGUAGE)
-  puts "#{message}"
+  puts message.to_s
 end
 
 def question_prompt(message)
