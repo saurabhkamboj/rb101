@@ -1,0 +1,13 @@
+> CASUAL (High level)
+- Get the loan amount
+  - Make sure it is valid, otherwise, ask again
+- Get Annual Percentage Rate (APR)
+  - Make sure it is valid, otherwise, ask again
+  - Convert the APR percentage into decimals
+  - Calculate monthly interest rate
+- Get loan duration in months
+  - Make sure it is valid, otherwise, ask again
+
+- Calculate monthly payment
+- Display result
+- Ask if user wants to do another calculation
