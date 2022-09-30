@@ -1,61 +1,92 @@
-require "pry"
+require 'pry'
+require 'yaml'
 
-# these methods convert user inputs into the required case for mortgage calculation
+LANGUAGE = 'en' # change language here
+MESSAGES = YAML.load_file('mortgage_calculator_messages.yml')
 
-def loan_amount(amount)
-  if amount.include? ","
-    amount.gsub!(',','').strip
+# sub-methods
+
+def modify_loan_amount(input)
+  if input.include? ','
+    input.gsub!(',','').strip
   else
-    amount.strip
+    input.strip
   end
 end
 
-# these methods validate user inputs
+def modify_annual_percent_rate(input)
+  if input.include? '%'
+    input.gsub!('%','').strip
+  else
+    input.strip
+  end
+end
 
-def valid_loan_amount?(amount)
-  valid_loan_amount = loan_amount(amount)
+def integer?(input)
+  valid_integer = modify_annual_percent_rate(input)
+  valid_integer.to_i.to_s == valid_integer
+end
+
+def float?(input)
+  valid_float = modify_annual_percent_rate(input)
+  valid_float.to_f.to_s == valid_float
+end
+
+# methods to validate user input
+
+def valid_loan_amount?(input)
+  valid_loan_amount = modify_loan_amount(input)
   valid_loan_amount.to_i.to_s == valid_loan_amount
 end
 
-def valid_annual_percentage_rate?(percent)
-  valid_annual_percentage_rate = annual_percentage_rate(percent)
-  valid_annual_percentage_rate.to_f.to_s == valid_annual_percentage_rate
+def valid_annual_percent_rate?(input)
+  integer?(input) || float?(input)
 end
 
-# first we gather user inputs for calculation
+def valid_loan_duration?(input)
+  input.to_i.to_s == input
+end
 
-input_loan_amount = ''
+# code to gather user input
+
+loan_amount = ''
 loop do
   print 'Enter loan amount: $'
-  input_loan_amount = gets.chomp
+  loan_amount = gets.chomp
 
-  if valid_loan_amount?(input_loan_amount)
+  if valid_loan_amount?(loan_amount)
     break
   else
     puts 'Invalid value. Please enter again'
   end
 end
 
-input_annual_percentage_rate = ''
+annual_percent_rate = ''
 loop do
-  print 'Enter Annual Percentage Rate (APR): '
-  input_annual_percentage_rate = gets.chomp
+  print 'Enter Annual percentage rate (APR): '
+  annual_percent_rate = gets.chomp
 
-  if valid_annual_percentage_rate?(input_annual_percentage_rate)
+  if valid_annual_percent_rate?(annual_percent_rate)
     break
   else
-    puts 'Invalid value. Please enter again'
+    puts 'Invalid value. Please enter again.'
   end
 end
 
-input_loan_duration = ''
+loan_duration = ''
 loop do
   print 'Enter loan duration in months: '
-  input_loan_duration = gets.chomp
+  loan_duration = gets.chomp
 
-  if valid_loan_duration?(input_loan_duration)
+  if valid_loan_duration?(loan_duration)
     break
   else
-    puts 'Invalid value. Please enter again'
+    puts 'Invalid value. Please enter again.'
   end
 end
+
+monthly_interest_rate = annual_percent_rate.to_f / 12
+
+monthly_payment = loan_amount.to_i * (monthly_interest_rate / (1 - (1 + monthly_interest_rate)**(-loan_duration.to_i)))
+
+puts monthly_payment
