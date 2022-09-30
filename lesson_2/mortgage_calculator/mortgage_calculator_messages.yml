@@ -6,7 +6,7 @@ en:
   ask_loan_duration: "Enter the loan term in months (For example: If the loan term is 1 year and 2 months, enter; 14): "
   invalid_value: "Invalid value...please enter a valid value."
   calculating: "Your monthly payment is being calculated...."
-  result: "Your monthly payment will be USD "
+  result: "Your monthly payment will be USD"
   calculate_again: "Do you want to perform another calculation? (Y/N): "
   thank_you: "Thank you for using the Mortgage Calculator!"
 lat:

@@ -77,7 +77,7 @@ Output
 - Display result
 - Ask if user wants to do another calculation
 
-## prompts
+## Prompts
 
 - Title `title:`
 - Loan amount `ask_loan_amount:`
