@@ -53,7 +53,7 @@ def float?(input)
 end
 
 def monthly_payment(p, j, n)
-  p.to_i * (j / (1 - (1 + j)**(-n.to_i)))
+  p.to_i * (j.to_f / (1 - (1 + j.to_f)**(-n.to_i)))
 end
 
 # methods to validate user input
@@ -72,6 +72,7 @@ def v_loan_duration?(input)
 end
 
 # code to gather user input
+
 prompt('title')
 
 loop do
@@ -111,7 +112,8 @@ loop do
     end
   end
 
-  monthly_interest_rate = annual_percent_rate.to_f / 12
+  monthly_interest_rate = (annual_percent_rate.to_f / 100) / 12
+
   result = monthly_payment(loan_amount, monthly_interest_rate, loan_duration)
 
   prompt('calculating')
