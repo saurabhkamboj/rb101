@@ -1,32 +1,6 @@
-=begin
-> User innput
-- Get the loan amount
+# Building a Mortgage Calculator
 
-  - Make sure it is valid, otherwise, ask again
-  - Convert the user input into the required case
-- Get Annual Percentage Rate (APR)
-  - Make sure it is valid, otherwise, ask again
-  - Convert the user input into the required case
-- Get loan duration in months
-  - Make sure it is valid, otherwise, ask again
-
-- Convert the APR percentage into decimals
-  - Calculate monthly interest rate
-- Calculate monthly payment
-- Display result
-- Ask if user wants to do another calculation
-
-> Loan amount -- Convert the user input into the required case
-
-- If the amount only has integers then true
-- Else interate over the string and 
-
-- Calculate monthly payment
-- Display result
-- Ask if user wants to do another calculation
-=end
-
-# Problem
+## Problem
 
 Goal - Build a mortgage calculator
 
@@ -46,12 +20,13 @@ p = loan amount
 j = monthly interest rate
 n = loan duration in months
 
-# Data structures
+## Data structures
 
 Possible input
 
-- Loan amount: Whole number with a special character (Currency symbol) or commas or both. (to_i)
-- Annual percentage rate: Whole number or a decimal with a special character (%) or a string that contains 'percent'
+- Loan amount: Whole number with a special character (Currency symbol or ',' or both) - to_i removes the currency symbol
+- Annual percentage rate: Whole number or a decimal with a special character (%) or a string that contains 'percent' - to_i and to
+-f remove the string
 - Loan duration (in Months): Integer
 
 Required input
@@ -65,32 +40,50 @@ Output
 - Monthly interest rate: Float
 - Monthly payment: Float
 
-# Algorithm
+## Algorithm
 
 - Get the loan amount
   - Convert the input into the required case
-  - Validate the converted input
+  - Validate the converted input, if not valid, as again
 - Get Annual Percentage Rate (APR)
+  - Convert the input into the required case
+  - Validate the converted input, if not valid, as again
 - Get loan duration in months
+  - Validate the converted input, if not valid, as again
 
 - Convert APR into monthly interest rate
-- Calculate monthly payment
 
 ---
 
-## To convert and validate the input loan amount
+### To convert and validate the input loan amount
 
 - To remove ',' we can write a method that substitutes ','
   - If the input contains','
-    - then substitute ','
-  - Else do not change anything
+    - then substitute ',' and remove empty space(s)
+  - Else only remove empty spaces
 
-- Method to validate the input loan amount
+- Method to validate the input loan amount _Same for all except APR, need to validate float as well_
   - valid_loan_amount = converted input loan amount
   - valid_loan_amount.to_i.to_s = valid_loan_amount
 
-## To convert and validate the input annual percentage rate
+### To convert and validate the input annual percentage rate
 
-Whole number or a decimal with a special character (%) or a string that contains 'percent' converts to Float
+- To remove '%' we can write a method that substitutes '%'
+  - If the input contains'%'
+    - then substitute '%' and remove empty space(s)
+  - Else only remove empty space(s)
 
-- To remove '%' or 'percent' we can write a method that retrieves '.' and whole numbers. Update > I just checked on irb, using to_f method on a string that contains '%' or 'percent' returns decimals only.
+- Calculate monthly payment
+- Display result
+- Ask if user wants to do another calculation
+
+## prompts
+
+- Title
+- Loan amount
+- Annual percentage rate
+- Loan duration in months
+- Invalid value
+- Calculating
+- Result
+- Thank you
