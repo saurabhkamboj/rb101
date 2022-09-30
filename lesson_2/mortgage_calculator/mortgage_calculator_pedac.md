@@ -15,9 +15,9 @@ Output:
 - monthly interest rate = `(APR/12)`
 - monthly payment = `m = p * (j / (1 - (1 + j)**(-n))) where`
 
-m = monthly payment
-p = loan amount
-j = monthly interest rate
+m = monthly payment\
+p = loan amount\
+j = monthly interest rate\
 n = loan duration in months
 
 ## Data structures
@@ -53,8 +53,6 @@ Output
 
 - Convert APR into monthly interest rate
 
----
-
 ### To convert and validate the input loan amount
 
 - To remove ',' we can write a method that substitutes ','
@@ -76,6 +74,8 @@ Output
 - Calculate monthly payment
 - Display result
 - Ask if user wants to do another calculation
+
+---
 
 ## Prompts
 
