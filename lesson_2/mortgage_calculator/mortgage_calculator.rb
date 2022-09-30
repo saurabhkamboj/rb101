@@ -2,25 +2,26 @@ require 'pry'
 require 'yaml'
 
 LANGUAGE = 'en' # change language here, choose between 'en' (for english) and 'lat' (for latin).
-MESSAGES = YAML.load_file('mortgage_calculator_messages.yml')
 
-# sub-methods for prompts
+MESSAGES = YAML.load_file("mortgage_calculator_messages.yml")
 
-def messages(message, lang="en")
+# methods for prompts
+
+def messages(message, lang='en')
   MESSAGES[lang][message]
 end
 
-def prompt(type="display", key)
+def prompt(key, type='display')
   case type
-  when "question"
+  when 'question'
     message = messages(key, LANGUAGE)
     print "=> #{message}"
-  when "error"
+  when 'error'
     message = messages(key, LANGUAGE)
     puts "<!> #{message}"
   else
     message = messages(key, LANGUAGE)
-    puts message.to_s
+    puts message
   end
 end
 
@@ -72,52 +73,55 @@ def v_loan_duration?(input)
 end
 
 # code to gather user input
+prompt('title')
 
 loop do
   loan_amount = ''
   loop do
-    print 'Enter loan amount: $'
+    prompt('ask_loan_amount', 'question')
     loan_amount = gets.chomp
 
     if v_loan_amount?(loan_amount)
       break
     else
-      puts 'Invalid value. Please enter again'
+      prompt('invalid_value', 'error')
     end
   end
 
   annual_percent_rate = ''
   loop do
-    print 'Enter Annual percentage rate (APR): '
+    prompt('ask_annual_percent_rate', 'question')
     annual_percent_rate = gets.chomp
 
     if v_annual_percent_rate?(annual_percent_rate)
       break
     else
-      puts 'Invalid value. Please enter again.'
+      prompt('invalid_value', 'error')
     end
   end
 
   loan_duration = ''
   loop do
-    print 'Enter loan duration in months: '
+    prompt('ask_loan_duration', 'question')
     loan_duration = gets.chomp
 
     if v_loan_duration?(loan_duration)
       break
     else
-      puts 'Invalid value. Please enter again.'
+      prompt('invalid_value', 'error')
     end
   end
 
   monthly_interest_rate = annual_percent_rate.to_f / 12
 
-  puts monthly_payment(loan_amount, monthly_interest_rate, loan_duration)
+  prompt('calculating')
 
-  puts("Do you want to perform another calculation? (Y/N): ")
+  puts "#{messages('result',LANGUAGE)}" + "#{monthly_payment(loan_amount, monthly_interest_rate, loan_duration).round(2)}!"
+
+  prompt('calculate_again', 'question')
   answer = gets.chomp
 
   break unless answer.downcase == "y"
 end
 
-puts("Thank you")
+prompt('thank_you')

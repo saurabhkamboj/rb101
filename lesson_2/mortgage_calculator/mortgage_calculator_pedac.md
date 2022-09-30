@@ -79,11 +79,12 @@ Output
 
 ## prompts
 
-- Title
-- Loan amount
-- Annual percentage rate
-- Loan duration in months
-- Invalid value
-- Calculating
-- Result
-- Thank you
+- Title `title:`
+- Loan amount `ask_loan_amount:`
+- Annual percentage rate `ask_annual_percent_rate:`
+- Loan duration in months `ask_loan_duration:`
+- Invalid value `invalid_value:`
+- Calculating `calculating:`
+- Result `result:`
+- Calculate again `calculate_again:`
+- Thank you `thank_you:`
