@@ -56,7 +56,7 @@ Output
 ### To convert and validate the input loan amount
 
 - To remove ',' we can write a method that substitutes ','
-  - If the input contains','
+  - If the input contains ','
     - then substitute ',' and remove empty space(s)
   - Else only remove empty spaces
 
@@ -73,9 +73,7 @@ Output
 
 - Calculate monthly payment
 - Display result
-- Ask if user wants to do another calculation
-
----
+- Ask if user wants to perform another calculation
 
 ## Prompts
 

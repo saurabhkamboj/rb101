@@ -1,7 +1,7 @@
 require 'pry'
 require 'yaml'
 
-LANGUAGE = 'en' # choose between 'en' (for english) and 'lat' (for latin).
+LANGUAGE = 'en' # choose between 'en' (for english) and 'lat' (for latin)
 
 MESSAGES = YAML.load_file("mortgage_calculator_messages.yml")
 
@@ -60,7 +60,7 @@ end
 
 def v_loan_amount?(input)
   v_loan_amount = m_loan_amount(input)
-  v_loan_amount.to_i.to_s == v_loan_amount
+  v_loan_amount.to_i.to_s == v_loan_amount && input.to_i != 0
 end
 
 def v_annual_percent_rate?(input)
@@ -68,10 +68,10 @@ def v_annual_percent_rate?(input)
 end
 
 def v_loan_duration?(input)
-  input.to_i.to_s == input
+  input.to_i.to_s == input && input.to_i != 0
 end
 
-# code to gather user input
+# main loop for calculation
 
 prompt('title')
 
@@ -117,8 +117,10 @@ loop do
   result = monthly_payment(loan_amount, monthly_interest_rate, loan_duration)
 
   prompt('calculating')
+  sleep 1
 
   puts "#{messages('result', LANGUAGE)} #{result.round(2)}!"
+  sleep 2
 
   prompt('calculate_again', 'question')
   answer = gets.chomp
