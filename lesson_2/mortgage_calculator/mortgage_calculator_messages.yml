@@ -2,7 +2,7 @@
 en:
   title: "The Mortgage Calculator - Calculator for basic calculation of Monthly payments"
   ask_loan_amount: "Enter the loan amount: $"
-  ask_annual_percent_rate: "Enter the interest rate: "
+  ask_annual_percent_rate: "Enter the interest rate in percentage (For example: If the interest rate is 5.4 percent enter 5.4): "
   ask_loan_duration: "Enter the loan term in months (For example: If the loan term is 1 year and 2 months, enter; 14): "
   invalid_value: "Invalid value...please enter a valid value."
   calculating: "Your monthly payment is being calculated...."
