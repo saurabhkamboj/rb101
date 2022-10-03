@@ -1,4 +1,3 @@
-require 'pry'
 require 'yaml'
 
 LANGUAGE = 'en' # choose between 'en' (for english) and 'lat' (for latin)
@@ -26,7 +25,7 @@ end
 
 # sub-methods for calculation
 
-def m_loan_amount(input)
+def modify_loan_amount(input)
   if input.include? ','
     input.gsub!(',', '').strip
   else
@@ -34,7 +33,7 @@ def m_loan_amount(input)
   end
 end
 
-def m_annual_percent_rate(input)
+def modify_annual_percent_rate(input)
   if input.include? '%'
     input.gsub!('%', '').strip
   else
@@ -43,31 +42,31 @@ def m_annual_percent_rate(input)
 end
 
 def integer?(input)
-  v_integer = m_annual_percent_rate(input)
-  v_integer.to_i.to_s == v_integer
+  valid_integer = modify_annual_percent_rate(input)
+  valid_integer.to_i.to_s == valid_integer
 end
 
 def float?(input)
-  v_float = m_annual_percent_rate(input)
-  v_float.to_f.to_s == v_float
+  valid_float = modify_annual_percent_rate(input)
+  valid_float.to_f.to_s == valid_float
 end
 
-def monthly_payment(p, j, n)
-  p.to_i * (j.to_f / (1 - (1 + j.to_f)**(-n.to_i)))
+def monthly_payment(amount, interest, duration)
+  amount.to_i * (interest.to_f / (1 - (1 + interest.to_f)**(-duration.to_i)))
 end
 
 # methods to validate user input
 
-def v_loan_amount?(input)
-  v_loan_amount = m_loan_amount(input)
-  v_loan_amount.to_i.to_s == v_loan_amount && input.to_i != 0
+def valid_loan_amount?(input)
+  valid_loan_amount = modify_loan_amount(input)
+  valid_loan_amount.to_i.to_s == valid_loan_amount && input.to_i != 0
 end
 
-def v_annual_percent_rate?(input)
-  integer?(input) || float?(input)
+def valid_annual_percent_rate?(input)
+  (integer?(input) || float?(input)) && input.to_f != 0.0
 end
 
-def v_loan_duration?(input)
+def valid_loan_duration?(input)
   input.to_i.to_s == input && input.to_i != 0
 end
 
@@ -81,7 +80,7 @@ loop do
     prompt('ask_loan_amount', 'question')
     loan_amount = gets.chomp
 
-    if v_loan_amount?(loan_amount)
+    if valid_loan_amount?(loan_amount)
       break
     else
       prompt('invalid_value', 'error')
@@ -93,7 +92,7 @@ loop do
     prompt('ask_annual_percent_rate', 'question')
     annual_percent_rate = gets.chomp
 
-    if v_annual_percent_rate?(annual_percent_rate)
+    if valid_annual_percent_rate?(annual_percent_rate)
       break
     else
       prompt('invalid_value', 'error')
@@ -105,7 +104,7 @@ loop do
     prompt('ask_loan_duration', 'question')
     loan_duration = gets.chomp
 
-    if v_loan_duration?(loan_duration)
+    if valid_loan_duration?(loan_duration)
       break
     else
       prompt('invalid_value', 'error')
@@ -125,7 +124,7 @@ loop do
   prompt('calculate_again', 'question')
   answer = gets.chomp
 
-  break unless answer.downcase == "y"
+  break unless answer.downcase == "y" || answer.downcase == "yes"
 end
 
 prompt('thank_you')
