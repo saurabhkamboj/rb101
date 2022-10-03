@@ -1,18 +1,22 @@
-VALID_CHOICES = ['rock', 'paper', 'scissors']
+VALID_CHOICES = %w(rock paper scissor)
 
 def question_prompt(message)
   print "=> #{message}"
 end
 
+def win?(first, second)
+  (first == 'rock' && second == 'scissor') ||
+    (first == 'scissor' && second == 'paper') ||
+    (first == 'paper' && second == 'rock')
+end
+
 def result(choice, computer_choice)
-  if choice == computer_choice
-    "It's a tie!"
-  elsif (choice == 'rock' && computer_choice == 'scissors') ||
-    (choice == 'scissors' && computer_choice == 'paper') ||
-    (choice == 'paper' && computer_choice == 'rock')
+  if win?(choice, computer_choice)
     "You won!"
-  else
+  elsif win?(computer_choice, choice)
     "Computer won!"
+  else
+    "It's a tie."
   end
 end
 
