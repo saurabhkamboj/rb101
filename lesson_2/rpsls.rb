@@ -16,8 +16,8 @@ stats = {
 
 results = ['You won!', 'The computer won!', "It's a tie!"]
 
-def win?(player_one, player_two, index)
-  OUTCOMES[player_one.to_sym][index] == player_two
+def win?(player, computer, index)
+  OUTCOMES[player.to_sym][index] == computer
 end
 
 def question_prompt(message)
@@ -55,31 +55,24 @@ loop do
     computer_choice = VALID_CHOICES.sample
 
     # loop to find the result
+    
+    puts "You chose #{player_choice.capitalize}!"
+    puts "Computer chooses #{computer_choice.capitalize}!"
 
     if win?(player_choice, computer_choice, 0)
       stats[:player] += 1
-      puts "You chose #{player_choice.capitalize}!"
-      puts "Computer chooses #{computer_choice.capitalize}!"
       puts results[0].to_s
     elsif win?(player_choice, computer_choice, 1)
       stats[:player] += 1
-      puts "You chose #{player_choice.capitalize}!"
-      puts "Computer chooses #{computer_choice.capitalize}!"
       puts results[0].to_s
     elsif win?(computer_choice, player_choice, 0)
       stats[:computer] += 1
-      puts "You chose #{player_choice.capitalize}!"
-      puts "Computer chooses #{computer_choice.capitalize}!"
       puts results[1].to_s
     elsif win?(computer_choice, player_choice, 1)
       stats[:computer] += 1
-      puts "You chose #{player_choice.capitalize}!"
-      puts "Computer chooses #{computer_choice.capitalize}!"
       puts results[1].to_s
     else
       stats[:tie] += 1
-      puts "You chose #{player_choice.capitalize}!"
-      puts "Computer chooses #{computer_choice.capitalize}!"
       puts results[2].to_s
     end
 
