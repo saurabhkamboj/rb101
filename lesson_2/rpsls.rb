@@ -16,8 +16,8 @@ stats = {
 
 results = ['You won!', 'The computer won!', "It's a tie!"]
 
-def win?(player, computer, index)
-  OUTCOMES[player.to_sym][index] == computer
+def win?(choice1, choice2, index)
+  OUTCOMES[choice1.to_sym][index] == choice2
 end
 
 def question_prompt(message)
