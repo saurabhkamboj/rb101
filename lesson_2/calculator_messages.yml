@@ -1,0 +1,10 @@
+
+en:
+  title: "The CALCULATOR"
+  thank_you: "Thank you for using the CALCULATOR."
+  invalid_number: "This isn't a valid number! #{first_number}."
+lat:
+  title: "CALCULATOR"
+  thank_you: "Gratias tibi ago pro calculatore utendo."
+  invalid_number: "Hoc non est numerus validus!"
+  
