@@ -1,9 +1,11 @@
 # Example 3
 
-`[[1, 2], [3, 4]].map do |arr|
+```ruby
+[[1, 2], [3, 4]].map do |arr|
   puts arr.first
   arr.first
-end`
+end
+```
 
 | Line | Action | Object | Side-Effect | Return value | Is returned value used? |
 | --- | --- | --- | --- | --- | --- |
