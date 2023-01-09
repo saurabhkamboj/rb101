@@ -6,8 +6,6 @@ munsters = {
   "Marilyn" => { "age" => 23, "gender" => "female"}
 }
 
-# (Name) is a (age)-year-old (male or female).
-
 munsters.each do |name, details|
   puts "#{name} is a #{details["age"]}-year-old #{details["gender"]}."
 end
