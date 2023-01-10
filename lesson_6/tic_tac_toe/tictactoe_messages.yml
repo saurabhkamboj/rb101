@@ -1,0 +1,10 @@
+
+en:
+  marker_information: "Your marker is X and computer's marker is 0"
+  remaining_squares: "Remaining squares"
+  ask_square_choice: "Chose a number representing a square: "
+  error_message: "Error! Invalid square. Please chose a valid square."
+  congratulations: "won!"
+  tied_game: "It's a tie!"
+  play_again: "Do you want to play again? (Y/N): "
+  thank_you: "Thank you for playing Tic Tac Toe"
