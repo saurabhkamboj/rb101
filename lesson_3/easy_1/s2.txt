@@ -1,0 +1,6 @@
+There is not a direct different between ! and ? except that they are two different characters. In ruby is the ! and ? are used at the end of a method name then they are a part of the method name, therefore the outcome depends on the method implementation and not the characters itself.
+
+1. != means 'not equal to'
+2. !<object> is used to return the opposite of the boolean equvivalant of the object
+4. ? <object> : <object> is the ternary operatior for if...else
+6. !!<object> is used to return the boolean equvivalant of the object

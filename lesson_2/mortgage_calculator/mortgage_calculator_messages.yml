@@ -1,0 +1,21 @@
+
+en:
+  title: "The Mortgage Calculator - Calculator for basic calculation of Monthly payments"
+  ask_loan_amount: "Enter the loan amount: $"
+  ask_annual_percent_rate: "Enter the interest rate in percentage (For example: If the interest rate is 5.4 percent enter 5.4): "
+  ask_loan_duration: "Enter the loan term in months (For example: If the loan term is 1 year and 2 months, enter; 14): "
+  invalid_value: "Invalid value...please enter a valid value."
+  calculating: "Your monthly payment is being calculated...."
+  result: "Your monthly payment will be USD"
+  calculate_again: "Do you want to perform another calculation? (Y/N): "
+  thank_you: "Thank you for using the Mortgage Calculator!"
+lat:
+  title: "Hypotheca Computus - Computus pro basic calculus menstrua praestationibus"
+  ask_loan_amount: "Intrant mutui moles: $"
+  ask_annual_percent_rate: "Intra ratem centesimae (Exempli gratia: Si interest rate est 5.4 percent intrabunt 5.4): "
+  ask_loan_duration: "Finis mutui intra menses (Exempli gratia: Si terminus mutui est annus 1 et 2 menses, intra 14): "
+  invalid_value: "Valorem invalidum...quaeso intra valorem validum."
+  calculating: "Tuum MENSTRUUM est ratione...."
+  result: "MENSTRUUM tuum erit USD"
+  calculate_again: "Visne alium calculum praestare? (Y/N): "
+  thank_you: "Gratias tibi ago pro usura Hypotheca Calculator!"

@@ -1,0 +1,81 @@
+1. CASUAL
+Given 2 integers.
+
+Add one to the other.
+Save the result to a variable.
+
+Return the local variable evaluated to the saved result.
+
+FORMAL
+START
+
+# Given 2 integers called number1 and number2
+
+SET result = number1 + number2
+
+PRINT result
+
+END
+
+2. CASUAL
+Given an array of strings.
+
+Iterate through the array one by one.
+  - save the first value of the array as the starting value.
+  - for each iteration except the first, concat the saved value with the current iteration.
+  - reassign the saved value as the concatenated value.
+
+After iterating through the array, return the saved value.
+
+FORMAL
+START
+
+# Given an array of string called "arr"
+
+SET saved_value = value within the arr array at space 1
+SET iterator = 1
+
+WHILE iterator < length of arr
+  SET result = saved_value + value within arr array at space "iterator"
+  reassign saved_value as result
+
+  iterator = iterator + 1
+
+PRINT result
+
+END
+
+3. CASUAL
+Given an array of intergers.
+
+Make a new blank array.
+
+Iterate through the given array one by one.
+  - for each iteration check the space of the current value within the array.
+  - if the space at which the current value is present is odd
+    - add the current value to the new array
+  - if the space at which the current value is present is even
+    - move to the next value
+
+After iterating through the array, return the new array.
+
+FORMAL
+START
+
+# Given an array of intergers called "arr"
+
+SET new_arr = []
+SET counter = 0
+
+WHILE counter <= length of arr
+  iterate through the values within arr
+  IF counter is odd
+    new_arr << current value
+  ELSE
+    go to the next iteration
+  
+  counter = counter + 1
+
+PRINT new_arr
+
+END

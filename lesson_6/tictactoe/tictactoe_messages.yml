@@ -1,0 +1,21 @@
+
+en:
+  marker_info: "X is your marker & O is computer's\n\n"
+  who_plays_first: "Who goes first?\n
+    - Want the computer to choose? Input 'Yes'\n
+    - Want to go first? Input 'User'\n
+    - Want the computer to go first? Input 'Computer'\n\n
+    Input and press enter: "
+  error_message: "Error! Invalid option, please choose a valid option: "
+  update: "Remaining positions "
+  input_move: "Choose a position to place your marker: "
+  invalid_input: "Error! Invalid square. Please choose a valid square: "
+  user_wins_match: "Yay..you won!"
+  computer_wins_match: "Computer won!"
+  tie: "It is a tie!"
+  score_info: "Score:"
+  next_round: "Next round..."
+  user_wins_game: "Congratulations! You won the game."
+  computer_wins_game: "Computer won the game."
+  play_again: "Do you want to play again? (Y/N): "
+  thank_you: "Thank you for playing Tic Tac Toe."

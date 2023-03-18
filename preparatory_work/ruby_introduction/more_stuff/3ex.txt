@@ -1,0 +1,3 @@
+What is exception handling and what problem does it solve?
+
+Solution: Exception handling deals with errors in a way that we define. It has a syntactic structure using the reserved words begin, rescue, and end to signify exception handling.

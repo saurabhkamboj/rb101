@@ -1,0 +1,37 @@
+#messages file for calculator bonus feature international translation Assignment 15 
+hi:
+      welcome: 'कैलकुलेटर में आपका स्वागत है'
+      valid_num: 'कृपया सही अंक दर्ज करें'
+      valid_op: 'कृपया चार ऑपरेटरों में से एक चुनें'
+      repeat_calc: 'क्या आप एक और गणना करना चाहेंगे (हाँ के लिए Y)'
+      op_msg: "आप कौन सा ऑपरेशन करना चाहें:\n
+            जोड़ने के लिए 1\n
+            घटाव के लिए 2\n
+            गुणा के लिए 3\n
+            डिवाइड के लिए 4"
+      divide_op: 'डिवाइडिंग'
+      multiply_op: 'का गुणन है'
+      add_op: 'का जोड़'
+      subtract_op: 'का घटाव'
+      first_num: 'पहला नंबर दर्ज करें'
+      second_num: 'दूसरा नंबर दर्ज करें'
+      thank_you: "कैल्क्यूलेटर का उपयोग करने के लिए धन्यवाद!\n   अलविदा!"
+
+en:
+      welcome: 'Welcome to the Calculator'
+      valid_num: 'Please enter a valid number'
+      valid_op: 'Please choose one of the four operators'
+      repeat_calc: 'Would you like to do another calculation (Y for yes)'
+      op_msg: "Which operation would you like to do \n
+            1 for Add \n
+            2 for Subtract\n
+            3 for Multiply\n
+            4 for Divide"
+      divide_op: 'Dividing'
+      multiply_op: 'Multiplying'
+      add_op: 'Adding'
+      subtract_op: 'Subtracting'
+      first_num: 'Enter the first number'
+      second_num: 'Enter the second number'
+      thank_you: "Thank you for using the Calculator!\n   Good bye!"
+      
